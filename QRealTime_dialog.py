@@ -1052,7 +1052,7 @@ class Central (Kobo):
         form_response = requests.get(c_url + "v1/projects/"+ str(project_id)+"/forms/", headers={"Authorization": "Bearer " + Central.usertoken})
         for form in form_response.json():
             if form ["enketoOnceId"] == selectedForm:
-                selectedFormName = form["name"]
+                selectedFormName = form["xmlFormId"]
                 Central.form_name = selectedFormName
         try:
             response = requests.get(c_url+'v1/projects/'+str(project_id)+'/forms/'+ selectedFormName+'.xml', headers ={"Authorization": "Bearer " + Central.usertoken})
